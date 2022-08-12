@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package com.cryptomation.universal.api.v1.grpc;
+
+option java_multiple_files = true;
+option java_package = "com.cryptomation.universal.api.v1.grpc";
+option java_outer_classname = "UniversalGrpcApi";
+
+// The greeting service definition.
+service UniversalCryptoApi {
+  rpc getBalance (GetBalanceRequest) returns (GetBalanceResponse) {}
+  rpc getTransactions (GetTransactionRequest) returns (GetTransactionResponse) {}
+}
+
+message EmptyMessage {}
+
+message GetTransactionRequest {
+  string api_key = 1;
+  string network = 2;
+  string address = 3;
+}
+
+message Transaction {
+  string hash = 1;
+  string from = 2;
+  string to = 3;
+  int64 value = 4;
+  int64 gas = 5;
+  string input = 7;
+  int64 nonce = 8;
+  string timestamp = 9;
+  string blockHash = 10;
+  int64 blockNumber = 11;
+  int64 confirmations = 12;
+  string contract = 13;
+}
+
+message GetTransactionResponse {
+  repeated Transaction transaction = 1;
+}
+
+message GetBalanceRequest {
+  // you could use full name of the network or main coin name
+  // for example: eth, polygon-pos-mainnet, matic and etc.
+  string api_key = 1;
+  string network = 2;
+  string address = 3;
+  optional string contract = 4; // contract address
+}
+
+message GetBalanceResponse {
+  int64 balance = 1;
+}
+
+enum AccountType {
+  Normal = 0;
+  AssetIssue = 1;
+  Contract = 2;
+}
