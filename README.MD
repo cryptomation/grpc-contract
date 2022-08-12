@@ -26,7 +26,7 @@ wget https://raw.githubusercontent.com/cryptomation/grpc-contract/main/universal
 ⚠ You must have grpcurl for running this example
 
 ```bash
-grpcurl -plaintext -d '{"api_key": "insert_you_api_key", "network":"polygon", "address": "0xdec0de7e6ed3ee7bb3a2c0baae7827d101d1ec20"}' localhost:13000 com.cryptomation.universal.api.v1.grpc.UniversalCryptoApi/getTransactions
+grpcurl -plaintext -d '{"api_key": "insert_you_api_key", "network":"polygon", "address": "0xdec0de7e6ed3ee7bb3a2c0baae7827d101d1ec20"}' grpc.cryptomation.com com.cryptomation.universal.api.v1.grpc.UniversalCryptoApi/getTransactions
 ```
 
 ## Simple example how get balance of account in the tron/near/etherium/polygon network:
@@ -36,5 +36,5 @@ grpcurl -plaintext -d '{"api_key": "insert_you_api_key", "network":"polygon", "a
 ⚠ You must have grpcurl for running this example
 
 ```bash
-grpcurl -plaintext -d '{"api_key": "insert_you_api_key", "network":"polygon", "address": "0xdec0de7e6ed3ee7bb3a2c0baae7827d101d1ec20"}' localhost:13000 com.cryptomation.universal.api.v1.grpc.UniversalCryptoApi/getBalance
+grpcurl -plaintext -d '{"api_key": "insert_you_api_key", "network":"polygon", "address": "0xdec0de7e6ed3ee7bb3a2c0baae7827d101d1ec20"}' grpc.cryptomation.com com.cryptomation.universal.api.v1.grpc.UniversalCryptoApi/getBalance
 ```
